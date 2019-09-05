@@ -27,7 +27,9 @@ class StbConan(ConanFile):
 
     def package(self):
         self.copy("*.h", src="stb", dst="include")
-        self.copy("*why_public_domain.md", src="stb", dst="licenses", keep_path=False)
+        self.copy("*why_public_domain.md", src="stb",
+                  dst="licenses", keep_path=False)
+        self.copy("FindSTB.cmake", ".", ".")
 
     def package_info(self):
         self.cpp_info.defines.append('STB_TEXTEDIT_KEYTYPE=unsigned')
